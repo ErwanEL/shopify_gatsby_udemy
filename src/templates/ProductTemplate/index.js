@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Layout, ImageGallery } from 'components';
-import { Grid, SelectWrapper } from './styles';
+import { Grid, SelectWrapper, Price } from './styles';
 import CartContext from 'context/CartContext';
 
 export const query = graphql`
@@ -68,7 +68,7 @@ export default function ProductTemplate(props) {
                   ))}
                 </select>
               </SelectWrapper>
-              <div>€{selectedVariant?.price}</div>
+              {!!selectedVariant && <Price>€{selectedVariant.price}</Price>}
             </>
           )}
         </div>
